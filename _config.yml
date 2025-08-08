@@ -1,0 +1,67 @@
+# ——— Site basics ———
+title: "Ahsan Jalil Mirza"
+name: "Ahsan Jalil Mirza"
+description: "Computer Vision Engineer — ISP, low-light enhancement, neuromorphic ML, and 3D reconstruction"
+url: "https://ahsanjmirza.github.io"
+baseurl: ""
+repository: "ahsanjmirza/ahsanjmirza.github.io"
+
+# ——— Theme ———
+remote_theme: "mmistakes/minimal-mistakes"
+
+# Enable common GitHub Pages plugins
+theme: null
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-include-cache
+
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Navigation (tabs)
+# Defined in _data/navigation.yml
+
+# Author profile (appears on home page)
+author:
+  name: "Ahsan Jalil Mirza"
+  avatar: "/assets/images/photo3.jpg"  # replace the file if you use a different name
+  bio: "Engineer and researcher with 3+ years of experience in ML, ISP, and 3D CV. Specialized in low-light enhancement, neuromorphic ML, and reconstruction on embedded/edge."
+  location: "Saarbrücken, Germany"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:ahsan.j.mirza@gmail.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ahsanjmirza"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/ahsan-jalil-8109b7170/"
+
+# Collections for Projects
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Defaults for project pages
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: single
+      author_profile: false
+      classes: wide
+      read_time: false
+      show_date: false
+
+# SEO & social (fill these later if you want rich cards)
+# twitter_username: ""
+# linkedin: "ahsan-jalil-8109b7170"
+# github: "ahsanjmirza"
