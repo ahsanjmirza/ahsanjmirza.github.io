@@ -1,0 +1,28 @@
+title: "Ahsan Jalil Mirza — Portfolio"
+description: "Computer Vision Engineer — ISP, Low-Light Imaging, Embedded AI, and 3D Reconstruction"
+url: ""  # (optional) set your custom domain here, or leave empty for username.github.io
+baseurl: ""  # keep empty for user/organization sites on GitHub Pages
+theme: null
+plugins:
+  - jekyll-seo-tag
+markdown: kramdown
+exclude:
+  - README.md
+  - LICENSE
+  - package.json
+  - node_modules
+nav:
+  - name: About
+    href: "#about"
+  - name: Experience
+    href: "#experience"
+  - name: Projects
+    href: "#projects"
+  - name: Education
+    href: "#education"
+  - name: Skills
+    href: "#skills"
+  - name: Publications
+    href: "#publications"
+  - name: Contact
+    href: "#contact"
