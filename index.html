@@ -1,0 +1,232 @@
+---
+layout: none
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ahsan Jalil Mirza — Portfolio</title>
+  <meta name="description" content="Computer Vision Engineer — ISP, Low-Light Imaging, Embedded AI, and 3D Reconstruction">
+  {%- seo -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/profile.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav container" aria-label="Primary">
+      <div class="brand">
+        <a href="#" class="brand-inner">Ahsan Jalil Mirza</a>
+      </div>
+      <button id="themeToggle" aria-label="Toggle color theme" title="Toggle color theme">◐</button>
+      <button id="menuToggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false">☰</button>
+      <ul id="site-menu" class="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="about" class="container">
+    <section class="hero card">
+      <img class="avatar" src="assets/img/profile.jpg" alt="Portrait of Ahsan Jalil Mirza">
+      <div class="hero-text">
+        <h1>Ahsan Jalil Mirza</h1>
+        <p class="subtitle">Computer Vision Engineer</p>
+        <p class="lead">
+          Engineer and researcher with 3+ years in Machine Learning, Image Signal Processing (ISP), and 3D Computer Vision.
+          Specialized in low-light enhancement, ISP pipelines, energy‑efficient & neuromorphic ML, and 3D reconstruction
+          (inverse rendering, SDF, egocentric pose) on embedded and edge platforms.
+        </p>
+        <div class="cta">
+          <a class="btn" href="https://github.com/ahsanjmirza" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/ahsan-jalil-8109b7170/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn outline" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>Work Experience</h2>
+      <div class="timeline">
+        <article class="item card">
+          <header>
+            <h3>Junior Researcher <span class="tenure">Oct 2023 — Jul 2024 (Part‑time)</span></h3>
+            <p class="org"><a href="https://www.dfki.de/web/forschung/projekte-publikationen/projekt/escade" target="_blank" rel="noopener">Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI)</a> — Saarbrücken, Germany</p>
+          </header>
+          <ul>
+            <li>Designed NLP and vision use cases for neuromorphic chips and hybrid DL‑neuromorphic architectures for energy efficiency.</li>
+            <li>Built a Python toolbox to benchmark AI carbon footprint, reducing evaluation time by ~40%.</li>
+            <li>Developed and deployed a drone‑based vision system on NVIDIA Jetson for automated, energy‑efficient steel scrap sorting.</li>
+          </ul>
+        </article>
+
+        <article class="item card">
+          <header>
+            <h3>Research Assistant <span class="tenure">Jul 2022 — Sep 2023 (Part‑time)</span></h3>
+            <p class="org"><a href="https://www.iss.uni-saarland.de/" target="_blank" rel="noopener">Saarland University</a> — Saarbrücken, Germany</p>
+          </header>
+          <ul>
+            <li>Proposed an adversarial OOD detection model for Graph Neural Networks, improving AUROC by ~7% on benchmarks.</li>
+            <li>Tutored ~50 students in Data Science; mentored on ML, Python, and projects to boost quality.</li>
+          </ul>
+        </article>
+
+        <article class="item card">
+          <header>
+            <h3>Senior Algorithm Engineer <span class="tenure">Jun 2021 — Apr 2022 (Full‑time)</span></h3>
+            <p class="org"><a href="http://www.10xengineers.ai/" target="_blank" rel="noopener">10xEngineers</a> — Lahore, Pakistan</p>
+          </header>
+          <ul>
+            <li>Designed and optimized ISP algorithms (demosaicing, sharpening, denoising) for cost‑efficient hardware.</li>
+            <li>Created a gradient‑based demosaicing algorithm achieving ~38 dB PSNR with fewer artifacts than competitors.</li>
+            <li>Delivered an ML‑driven sharpening pipeline with skin‑tone detection, improving SSIM by ~9%.</li>
+            <li>Built an in‑house ISP benchmarking lab and developed ML training programs for hires and universities.</li>
+          </ul>
+        </article>
+
+        <article class="item card">
+          <header>
+            <h3>Algorithm Engineer <span class="tenure">Jul 2020 — May 2021 (Full‑time)</span></h3>
+            <p class="org">Lampró Méllon (now <a href="https://rapidsilicon.com/" target="_blank" rel="noopener">Rapid Silicon</a>) — Lahore, Pakistan</p>
+          </header>
+          <ul>
+            <li>Developed ISP algorithms (demosaicing, denoising) for SoC Vision Cores with hardware‑friendly designs.</li>
+            <li>Simulated DL networks (AlexNet, ResNet, U‑Net) on Nvidia NVDLA to support neural accelerator development.</li>
+            <li>Designed a lightweight CNN for ultra‑low‑light denoising, ranked 15<sup>th</sup> in the <a href="https://competitions.codalab.org/competitions/28120#results" target="_blank" rel="noopener">NTIRE21 Real Image Denoising Competition</a>.</li>
+          </ul>
+        </article>
+
+        <article class="item card">
+          <header>
+            <h3>Intern <span class="tenure">Jun 2018 — Aug 2018 (Full‑time)</span></h3>
+            <p class="org"><a href="https://www.siemens.com/pk/en.html" target="_blank" rel="noopener">Siemens</a> — Lahore, Pakistan</p>
+          </header>
+          <ul>
+            <li>Programmed SCADA and PLC systems for industrial monitoring and automation.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="grid-2">
+        <article class="item card">
+          <header>
+            <h3>Masters in Visual Computing <span class="tenure">Oct 2022 — Sep 2025</span></h3>
+            <p class="org">Saarland University — Saarbrücken, Germany</p>
+          </header>
+          <p><strong>Relevant coursework: </strong>Image Processing and CV, 3D Computer Vision, Embedded Systems, Photorealistic 3D Reconstruction, Computer Graphics</p>
+          <p><strong>Thesis: </strong><em>Joint Egocentric Pose Estimation, 3D Reconstruction and Inverse Rendering Pipeline</em></p>
+          <p>Designed an end‑to‑end pipeline combining egocentric pose estimation and physically‑based inverse rendering to produce photorealistic 3D digital twins from RGB images, achieving state‑of‑the‑art accuracy using Signed Distance Functions (SDFs) and novel multi‑view capture.</p>
+        </article>
+
+        <article class="item card">
+          <header>
+            <h3>Bachelors in Electrical Engineering <span class="tenure">Aug 2016 — Jul 2020</span></h3>
+            <p class="org">National University of Computer and Emerging Sciences — Lahore, Pakistan</p>
+          </header>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="skills">
+        <h3>Programming & Tools</h3>
+        <div class="tags">
+          <span>Python</span><span>C++</span><span>MATLAB</span><span>PyTorch</span><span>TensorFlow</span><span>OpenCV</span><span>Docker</span><span>Linux</span><span>Git</span><span>CI/CD</span>
+        </div>
+        <h3>Algorithms & Domains</h3>
+        <div class="tags">
+          <span>ISP Pipelines</span><span>Low‑Light Enhancement</span><span>Energy‑Efficient ML</span><span>Neuromorphic ML</span><span>3D Reconstruction</span><span>Inverse Rendering</span><span>SDF</span><span>Egocentric Pose</span><span>Transformers</span><span>GNNs</span><span>OOD Detection</span>
+        </div>
+        <h3>Deployment</h3>
+        <div class="tags">
+          <span>Embedded Systems</span><span>NVIDIA Jetson</span><span>CUDA</span><span>TensorRT</span><span>ONNX</span><span>Model Optimization</span>
+        </div>
+        <h3>Evaluation</h3>
+        <div class="tags">
+          <span>PSNR</span><span>SSIM</span><span>AUROC</span><span>Benchmarking</span><span>Energy‑to‑Performance Profiling</span>
+        </div>
+      </div>
+
+      <div class="grid-2 mt">
+        <div class="card">
+          <h3>Languages</h3>
+          <p>English (C1) • German (A2) • Urdu (Native)</p>
+        </div>
+        <div class="card">
+          <h3>Honors & Certifications</h3>
+          <ul>
+            <li><strong>Image Processing in Python</strong> — DataCamp (ID: 18,844,342)</li>
+            <li><strong>Dean's List Member – Bachelors</strong> — Dec 2019</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <h2>Publications</h2>
+      <article class="item card">
+        <p>
+          <a href="https://library.imaging.org/ei/articles/37/10/IPAS-227" target="_blank" rel="noopener">
+          Muqudas Rafiq, Ahsan Jalil, Khurram Usman, Muhammad Abdullah, Bilal Zafar,
+          “Multi‑Scale Feature Matching for Image Denoising using Residual Swin Transformers”,
+          Electronic Imaging, 2025, pp 227‑1–227‑6</a>
+        </p>
+      </article>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="contact card">
+        <ul class="contact-list">
+          <li><a href="mailto:ahsan.j.mirza@gmail.com">ahsan.j.mirza@gmail.com</a></li>
+          <li><a href="tel:+4915731705744">+49 157 317 05744</a></li>
+          <li>Saarbrücken, Germany</li>
+          <li><a href="https://github.com/ahsanjmirza" target="_blank" rel="noopener">github.com/ahsanjmirza</a></li>
+          <li><a href="https://www.linkedin.com/in/ahsan-jalil-8109b7170/" target="_blank" rel="noopener">linkedin.com/in/ahsan-jalil-8109b7170</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Ahsan Jalil Mirza. Built with ❤️ on GitHub Pages.</p>
+    </footer>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+
+  <!-- JSON-LD for rich snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahsan Jalil Mirza",
+    "jobTitle": "Computer Vision Engineer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saarbrücken",
+      "addressCountry": "Germany"
+    },
+    "email": "mailto:ahsan.j.mirza@gmail.com",
+    "telephone": "+49 157 317 05744",
+    "sameAs": [
+      "https://github.com/ahsanjmirza",
+      "https://www.linkedin.com/in/ahsan-jalil-8109b7170/"
+    ]
+  }
+  </script>
+</body>
+</html>
