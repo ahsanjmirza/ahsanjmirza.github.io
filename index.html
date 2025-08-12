@@ -1,239 +1,2028 @@
----
-layout: none
----
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ahsan Jalil Mirza — Portfolio</title>
-  <meta name="description" content="Computer Vision Engineer — ISP, Low-Light Imaging, Embedded AI, and 3D Reconstruction">
-  {%- seo -%}
+  <title>Ahsan Jalil Mirza — Computer Vision Engineer</title>
+  <meta name="description" content="Computer Vision Engineer specializing in ISP, Low-Light Imaging, Embedded AI, and 3D Reconstruction">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/icons/favicon.svg">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="icon" href="assets/img/photo3.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Light Theme */
+      --lightGreen: #68B2A0;
+      --darkGreen: #2C6975;
+      --lightBackground: #F8F8F8;
+      --darkBackground: #22262D;
+      --darkBlack: #000000;
+      --grayColor: #22262D;
+      --yellowColor: #FFE033;
+      
+      /* Current Theme (defaults to light) */
+      --bg-primary: var(--lightBackground);
+      --bg-secondary: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --text-primary: var(--darkBlack);
+      --text-secondary: #4B5563;
+      --text-muted: #6B7280;
+      --border: #E5E7EB;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0F0F0F;
+      --bg-secondary: #1A1A1A;
+      --bg-card: #2A2A2A;
+      --text-primary: #FFFFFF;
+      --text-secondary: #D1D5DB;
+      --text-muted: #9CA3AF;
+      --border: #374151;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Optimize for smooth scrolling */
+    html, body {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .snap-container {
+      height: 100vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scroll-padding-top: 80px;
+    }
+
+    .snap-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 0 2rem;
+      will-change: transform;
+      transform: translateZ(0);
+      contain: layout style paint;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(248, 248, 248, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(104, 178, 160, 0.2);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] .header {
+      background: rgba(15, 15, 15, 0.95);
+      border-bottom: 1px solid rgba(104, 178, 160, 0.3);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--lightGreen);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .logo img {
+      border: 2px solid var(--lightGreen);
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--lightGreen);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--lightGreen);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: var(--lightGreen);
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      background: var(--darkGreen);
+      transform: scale(1.1);
+    }
+
+    /* Language Toggle */
+    .language-toggle {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--lightGreen);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .language-toggle:hover {
+      background: var(--lightGreen);
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .background-circles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--lightGreen);
+      opacity: 0.1;
+    }
+
+    .circle-1 {
+      width: 200px;
+      height: 200px;
+      top: 20%;
+      left: 10%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .circle-2 {
+      width: 150px;
+      height: 150px;
+      top: 60%;
+      right: 15%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .circle-3 {
+      width: 100px;
+      height: 100px;
+      bottom: 20%;
+      left: 20%;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .hero-content {
+      z-index: 10;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .hero img {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 2rem;
+      border: 4px solid var(--lightGreen);
+      display: block;
+    }
+
+    .hero h2 {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.625rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    .hero-contact {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .hero-download-text {
+      color: var(--lightGreen);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+
+    .hero-download-text:hover {
+      color: var(--darkGreen);
+      text-decoration: underline;
+    }
+
+    .hero-contact-icons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .hero-icon:hover {
+      background: var(--lightGreen);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .hero-icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    /* Section Titles */
+    .section-title {
+      position: absolute;
+      top: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-transform: uppercase;
+      letter-spacing: 1.25rem;
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      white-space: nowrap;
+    }
+
+    /* About Section */
+    .about {
+      flex-direction: row;
+      text-align: left;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about img {
+      width: 208px;
+      height: 208px;
+      border-radius: 0.5rem;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .about-content {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .about-content h4 {
+      font-size: 2.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content h4 span {
+      text-decoration: underline;
+      text-decoration-color: var(--lightGreen);
+      text-decoration-thickness: 0.25rem;
+    }
+
+    .about-content p {
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+
+    /* Experience Section */
+    .experience {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .experience-cards {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 2rem;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: flex-start;
+      scrollbar-width: thin;
+      scrollbar-color: var(--lightGreen) transparent;
+      scroll-snap-type: x proximity;
+    }
+
+    .experience-card {
+      scroll-snap-align: center;
+    }
+
+    .experience-cards::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .experience-cards::-webkit-scrollbar-track {
+      background: rgba(104, 178, 160, 0.1);
+      border-radius: 4px;
+    }
+
+    .experience-cards::-webkit-scrollbar-thumb {
+      background: var(--lightGreen);
+      border-radius: 4px;
+    }
+
+    .experience-cards::-webkit-scrollbar-thumb:hover {
+      background: var(--darkGreen);
+    }
+
+    .experience-card {
+      background: var(--bg-card);
+      background: linear-gradient(to top right, var(--bg-card), rgba(104, 178, 160, 0.1));
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      width: 320px;
+      height: 420px;
+      flex-shrink: 0;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .experience-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 0.5rem;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .experience-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .experience-card .company {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--lightGreen);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      text-align: center;
+    }
+
+    .experience-card .date {
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-bottom: 0.75rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .experience-card ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin: 0;
+      flex-grow: 1;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--lightGreen) transparent;
+    }
+
+    .experience-card ul::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .experience-card ul::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .experience-card ul::-webkit-scrollbar-thumb {
+      background: var(--lightGreen);
+      border-radius: 2px;
+    }
+
+    .experience-card li {
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .experience-card li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Education Section */
+    .education {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .education-cards {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 2rem;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 500px;
+      scroll-snap-type: x proximity;
+    }
+
+    .education-card {
+      scroll-snap-align: center;
+    }
+
+    .education-cards::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .education-cards::-webkit-scrollbar-track {
+      background: rgba(104, 178, 160, 0.1);
+      border-radius: 4px;
+    }
+
+    .education-cards::-webkit-scrollbar-thumb {
+      background: var(--lightGreen);
+      border-radius: 4px;
+    }
+
+    .education-cards::-webkit-scrollbar-thumb:hover {
+      background: var(--darkGreen);
+    }
+
+    .education-card {
+      background: var(--bg-card);
+      background: linear-gradient(to top right, var(--bg-card), rgba(104, 178, 160, 0.1));
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      width: 400px;
+      height: 480px;
+      flex-shrink: 0;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .education-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .education-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    .education-card h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .education-card .institution {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--lightGreen);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .education-card .date {
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .education-card p {
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .education-card strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .education-card em {
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .education-card .content-scroll {
+      flex-grow: 1;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--lightGreen) transparent;
+    }
+
+    .education-card .content-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .education-card .content-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .education-card .content-scroll::-webkit-scrollbar-thumb {
+      background: var(--lightGreen);
+      border-radius: 2px;
+    }
+
+    /* Skills Section */
+    .skills {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .skill-category {
+      text-align: center;
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 200px;
+    }
+
+    .skill-category h4 {
+      color: var(--lightGreen);
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      align-items: flex-start;
+      flex-grow: 1;
+    }
+
+    .skill-tag {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 0.5rem 0.75rem;
+      border-radius: 1.25rem;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
+
+    .skill-tag:hover {
+      background: var(--lightGreen);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Honors Section */
+    .honors {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .honors-grid {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      align-items: stretch;
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .honor-card {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex: 1;
+      max-width: 350px;
+    }
+
+    .honor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .honor-icon {
+      flex-shrink: 0;
+      color: var(--lightGreen);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .honor-icon svg {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .honor-content h4 {
+      color: var(--text-primary);
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .honor-issuer {
+      color: var(--lightGreen);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .honor-id, .honor-date {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* Projects Section */
+    .projects {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .projects-cards {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 2rem;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: flex-start;
+      scrollbar-width: thin;
+      scrollbar-color: var(--lightGreen) transparent;
+      scroll-snap-type: x proximity;
+    }
+
+    .project-card {
+      scroll-snap-align: center;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      width: 400px;
+      height: 400px;
+      flex-shrink: 0;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+
+
+    .project-content {
+      padding: 1.5rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tech-tag {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    .project-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .project-link {
+      background: var(--lightGreen);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 1px solid var(--lightGreen);
+    }
+
+    .project-link:hover {
+      background: var(--darkGreen);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Publications Section */
+    .publications {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .publication-card {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+    }
+
+    .publication-card a {
+      color: var(--text-primary);
+      text-decoration: none;
+      line-height: 1.7;
+      transition: color 0.3s ease;
+    }
+
+    .publication-card a:hover {
+      color: var(--lightGreen);
+    }
+
+    /* Contact Section */
+    .contact {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 140px;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .contact-icon {
+      margin-bottom: 0.75rem;
+      color: var(--lightGreen);
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .contact-card h4 {
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .contact-card a, .contact-card p {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .contact-card a:hover {
+      color: var(--lightGreen);
+    }
+
+    /* Footer */
+    .footer {
+      position: sticky;
+      bottom: 1.25rem;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .footer-button {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(44, 105, 117, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-button:hover {
+      background: var(--darkGreen);
+      transform: scale(1.1);
+    }
+
+    .footer-button svg {
+      width: 1.75rem;
+      height: 1.75rem;
+      color: white;
+    }
+
+    /* Scrollbar */
+    .experience-cards::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .experience-cards::-webkit-scrollbar-track {
+      background: rgba(104, 178, 160, 0.1);
+      border-radius: 4px;
+    }
+
+    .experience-cards::-webkit-scrollbar-thumb {
+      background: var(--lightGreen);
+      border-radius: 4px;
+    }
+
+    .experience-cards::-webkit-scrollbar-thumb:hover {
+      background: var(--darkGreen);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .about img {
+        width: 160px;
+        height: 160px;
+      }
+
+      .experience-cards {
+        padding: 1rem;
+      }
+
+      .experience-card {
+        width: 280px;
+        height: 380px;
+        padding: 1.25rem;
+      }
+
+      .education-cards {
+        padding: 1rem;
+      }
+
+      .education-card {
+        width: 320px;
+        height: 420px;
+        padding: 1.25rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero h2 {
+        letter-spacing: 0.5rem;
+      }
+
+      .hero-contact-icons {
+        gap: 1rem;
+      }
+
+      .hero-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+      }
+
+      .section-title {
+        font-size: 1rem;
+        letter-spacing: 0.75rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .honors-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .honor-card {
+        max-width: 100%;
+      }
+
+      .projects-cards {
+        padding: 1rem;
+      }
+
+      .project-card {
+        width: 320px;
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .honors-grid {
+        gap: 1rem;
+      }
+
+      .project-card {
+        width: 280px;
+        height: 320px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .hero-contact-icons {
+        gap: 0.75rem;
+      }
+
+      .hero-icon {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      .hero-icon svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .experience-card {
+        width: 260px;
+        height: 360px;
+        padding: 1rem;
+      }
+
+      .education-card {
+        width: 280px;
+        height: 400px;
+        padding: 1rem;
+      }
+    }
+
+    /* Smooth Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(100px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Language-specific content */
+    [data-lang="de"] .en-content,
+    [data-lang="en"] .de-content {
+      display: none;
+    }
+
+    [data-lang="de"] .de-content,
+    [data-lang="en"] .en-content {
+      display: block;
+    }
+  </style>
 </head>
-<body data-gh="ahsanjmirza">
-  <a class="skip-link" href="#about">Skip to content</a>
+<body data-theme="light" data-lang="en">
+  <div class="snap-container">
+    <header class="header">
+      <nav class="nav-content">
+        <div class="logo">
+          <img src="assets/images/image.png" alt="Ahsan Jalil Mirza" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 10px;">
+          <span>Ahsan</span>
+        </div>
+        <div class="nav-controls">
+          <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#honors">Honors</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button class="language-toggle" onclick="toggleLanguage()">DE</button>
+          <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        </div>
+      </nav>
+    </header>
 
-  <header class="site-header" role="banner">
-    <nav class="nav container" aria-label="Primary">
-      <div class="brand">
-        <a href="#" class="brand-inner">Ahsan Jalil Mirza</a>
+    <section id="hero" class="snap-section hero">
+      <div class="background-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
       </div>
-      <button id="themeToggle" aria-label="Toggle color theme" title="Toggle color theme">◐</button>
-      <button id="menuToggle" class="menu-toggle" aria-controls="site-menu" aria-expanded="false">☰</button>
-      <ul id="site-menu" class="menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+      <div class="hero-content">
+        <img src="assets/images/image.png" alt="Ahsan Jalil Mirza">
+        <h2 class="en-content">Computer Vision Engineer</h2>
+        <h2 class="de-content">Computer Vision Ingenieur</h2>
+        <h1 class="en-content">Hi, the name's Ahsan Jalil Mirza</h1>
+        <h1 class="de-content">Hallo, ich bin Ahsan Jalil Mirza</h1>
+        <div class="hero-contact">
+          <a href="assets/documents/AJM_CV.pdf" download class="hero-download-text en-content">Download Resume</a>
+          <a href="assets/documents/AJM_CV.pdf" download class="hero-download-text de-content">Lebenslauf herunterladen</a>
+          <div class="hero-contact-icons">
+            <a href="mailto:ahsan.j.mirza@gmail.com" class="hero-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </a>
+            <a href="https://github.com/ahsanjmirza" target="_blank" class="hero-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-1.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/ahsanjmirza/" target="_blank" class="hero-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <main id="about" class="container">
-    <section class="hero card">
-      <img class="avatar" src="assets/img/photo3.jpg" alt="Portrait of Ahsan Jalil Mirza">
-      <div class="hero-text">
-        <h1>Ahsan Jalil Mirza</h1>
-        <p class="subtitle">Computer Vision Engineer</p>
-        <p class="lead">
+    <section id="about" class="snap-section about">
+      <h3 class="section-title en-content">About</h3>
+      <h3 class="section-title de-content">Über mich</h3>
+              <img src="assets/images/image.png" alt="Ahsan Jalil Mirza">
+      <div class="about-content">
+        <h4 class="en-content">Here is a <span>little</span> background</h4>
+        <h4 class="de-content">Hier ist ein <span>kleiner</span> Hintergrund</h4>
+        <p class="en-content">
           Engineer and researcher with 3+ years in Machine Learning, Image Signal Processing (ISP), and 3D Computer Vision.
-          Specialized in low-light enhancement, ISP pipelines, energy‑efficient & neuromorphic ML, and 3D reconstruction
+          Specialized in low-light enhancement, ISP pipelines, energy-efficient & neuromorphic ML, and 3D reconstruction
           (inverse rendering, SDF, egocentric pose) on embedded and edge platforms.
         </p>
-        <div class="cta">
-          <a class="btn" href="https://github.com/ahsanjmirza" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/ahsanjmirza/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn" href="https://github.com/ahsanjmirza/ahsanjmirza.github.io/blob/main/assets/AJM_CV.pdf" target="_blank" rel="noopener">Résumé</a>
-          <a class="btn outline" href="#contact">Get in touch</a>
-        </div>
+        <p class="de-content">
+          Ingenieur und Forscher mit über 3 Jahren Erfahrung in Machine Learning, Image Signal Processing (ISP) und 3D Computer Vision.
+          Spezialisiert auf Low-Light-Verbesserung, ISP-Pipelines, energieeffizientes & neuromorphes ML und 3D-Rekonstruktion
+          (Inverse Rendering, SDF, Egocentric Pose) auf eingebetteten und Edge-Plattformen.
+        </p>
       </div>
     </section>
 
-    <section id="experience" class="section">
-      <h2>Work Experience</h2>
-      <div class="timeline">
-        <article class="item card">
-          <header>
-            <h3>Junior Researcher <span class="tenure">Oct 2023 — Jul 2024 (Part‑time)</span></h3>
-            <p class="org"><a href="https://www.dfki.de/web/forschung/projekte-publikationen/projekt/escade" target="_blank" rel="noopener">Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI)</a> — Saarbrücken, Germany</p>
-          </header>
-          <ul>
-            <li>Designed NLP and vision use cases for neuromorphic chips and hybrid DL‑neuromorphic architectures for energy efficiency.</li>
+    <section id="experience" class="snap-section experience">
+      <h3 class="section-title en-content">Experience</h3>
+      <h3 class="section-title de-content">Erfahrung</h3>
+      <div class="experience-cards">
+        <article class="experience-card">
+          <img src="assets/images/dfki.png" alt="DFKI">
+          <h4 class="en-content">Junior Researcher</h4>
+          <h4 class="de-content">Junior Forscher</h4>
+          <p class="company">Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI)</p>
+          <p class="date">Oct 2023 — Jul 2024 (Part-time)</p>
+          <ul class="en-content">
+            <li>Designed NLP and vision use cases for neuromorphic chips and hybrid DL-neuromorphic architectures for energy efficiency.</li>
             <li>Built a Python toolbox to benchmark AI carbon footprint, reducing evaluation time by ~40%.</li>
-            <li>Developed and deployed a drone‑based vision system on NVIDIA Jetson for automated, energy‑efficient steel scrap sorting.</li>
+            <li>Developed and deployed a drone-based vision system on NVIDIA Jetson for automated, energy-efficient steel scrap sorting.</li>
+          </ul>
+          <ul class="de-content">
+            <li>Entwickelte NLP- und Vision-Anwendungsfälle für neuromorphe Chips und hybride DL-neuromorphe Architekturen für Energieeffizienz.</li>
+            <li>Erstellte ein Python-Toolkit zur Bewertung des AI-CO2-Fußabdrucks mit 40% Zeitersparnis.</li>
+            <li>Entwickelte und implementierte ein drohnenbasiertes Vision-System auf NVIDIA Jetson für automatische, energieeffiziente Stahlschrottsortierung.</li>
           </ul>
         </article>
 
-        <article class="item card">
-          <header>
-            <h3>Research Assistant <span class="tenure">Jul 2022 — Sep 2023 (Part‑time)</span></h3>
-            <p class="org"><a href="https://www.iss.uni-saarland.de/" target="_blank" rel="noopener">Saarland University</a> — Saarbrücken, Germany</p>
-          </header>
-          <ul>
-            <li>Proposed an adversarial OOD detection model for Graph Neural Networks, improving AUROC by ~7% on benchmarks.</li>
+        <article class="experience-card">
+          <img src="assets/images/saarland.png" alt="Saarland University">
+          <h4 class="en-content">Research Assistant</h4>
+          <h4 class="de-content">Wissenschaftlicher Mitarbeiter</h4>
+          <p class="company">Saarland University</p>
+          <p class="date">Jul 2022 — Sep 2023 (Part-time)</p>
+          <ul class="en-content">
+            <li>Proposed adversarial OOD detection model for Graph Neural Networks, improving AUROC by ~7% on benchmarks.</li>
             <li>Tutored ~50 students in Data Science; mentored on ML, Python, and projects to boost quality.</li>
           </ul>
-        </article>
-
-        <article class="item card">
-          <header>
-            <h3>Senior Algorithm Engineer <span class="tenure">Jun 2021 — Apr 2022 (Full‑time)</span></h3>
-            <p class="org"><a href="http://www.10xengineers.ai/" target="_blank" rel="noopener">10xEngineers</a> — Lahore, Pakistan</p>
-          </header>
-          <ul>
-            <li>Designed and optimized ISP algorithms (demosaicing, sharpening, denoising) for cost‑efficient hardware.</li>
-            <li>Created a gradient‑based demosaicing algorithm achieving ~38 dB PSNR with fewer artifacts than competitors.</li>
-            <li>Delivered an ML‑driven sharpening pipeline with skin‑tone detection, improving SSIM by ~9%.</li>
-            <li>Built an in‑house ISP benchmarking lab and developed ML training programs for hires and universities.</li>
+          <ul class="de-content">
+            <li>Entwickelte ein adversarielles OOD-Erkennungsmodell für Graph Neural Networks mit 7% AUROC-Verbesserung.</li>
+            <li>Betreute ~50 Studenten in Data Science und mentorierte ML-, Python- und Projektarbeit.</li>
           </ul>
         </article>
 
-        <article class="item card">
-          <header>
-            <h3>Algorithm Engineer <span class="tenure">Jul 2020 — May 2021 (Full‑time)</span></h3>
-            <p class="org">Lampró Méllon (now <a href="https://rapidsilicon.com/" target="_blank" rel="noopener">Rapid Silicon</a>) — Lahore, Pakistan</p>
-          </header>
-          <ul>
-            <li>Developed ISP algorithms (demosaicing, denoising) for SoC Vision Cores with hardware‑friendly designs.</li>
-            <li>Simulated DL networks (AlexNet, ResNet, U‑Net) on Nvidia NVDLA to support neural accelerator development.</li>
-            <li>Designed a lightweight CNN for ultra‑low‑light denoising, ranked 15<sup>th</sup> in the <a href="https://competitions.codalab.org/competitions/28120#results" target="_blank" rel="noopener">NTIRE21 Real Image Denoising Competition</a>.</li>
+        <article class="experience-card">
+          <img src="assets/images/10xengineers.png" alt="10xEngineers">
+          <h4 class="en-content">Senior Algorithm Engineer</h4>
+          <h4 class="de-content">Senior Algorithmus-Ingenieur</h4>
+          <p class="company">10xEngineers</p>
+          <p class="date">Jun 2021 — Apr 2022 (Full-time)</p>
+          <ul class="en-content">
+            <li>Designed and optimized ISP algorithms (demosaicing, sharpening, denoising) for cost-efficient hardware.</li>
+            <li>Created a gradient-based demosaicing algorithm achieving ~38 dB PSNR with fewer artifacts than competitors.</li>
+            <li>Delivered an ML-driven sharpening pipeline with skin-tone detection, improving SSIM by ~9%.</li>
+            <li>Built an in-house ISP benchmarking lab and developed ML training programs for hires and universities.</li>
+          </ul>
+          <ul class="de-content">
+            <li>Entwickelte und optimierte ISP-Algorithmen (Demosaicing, Schärfung, Rauschunterdrückung) für kostengünstige Hardware.</li>
+            <li>Erstellte einen gradientenbasierten Demosaicing-Algorithmus mit ~38 dB PSNR und weniger Artefakten.</li>
+            <li>Implementierte ML-gestützte Schärfepipeline mit Hauttonerkennung und 9% SSIM-Verbesserung.</li>
+            <li>Errichtete ein internes ISP-Benchmarking-Labor und entwickelte ML-Schulungsprogramme.</li>
           </ul>
         </article>
 
-        <article class="item card">
-          <header>
-            <h3>Intern <span class="tenure">Jun 2018 — Aug 2018 (Full‑time)</span></h3>
-            <p class="org"><a href="https://www.siemens.com/pk/en.html" target="_blank" rel="noopener">Siemens</a> — Lahore, Pakistan</p>
-          </header>
-          <ul>
+        <article class="experience-card">
+          <img src="assets/images/lampromellon.png" alt="Lampró Méllon">
+          <h4 class="en-content">Algorithm Engineer</h4>
+          <h4 class="de-content">Algorithmus-Ingenieur</h4>
+          <p class="company">Lampró Méllon (now Rapid Silicon)</p>
+          <p class="date">Jul 2020 — May 2021 (Full-time)</p>
+          <ul class="en-content">
+            <li>Developed ISP algorithms (demosaicing, denoising) for SoC Vision Cores with hardware-friendly designs.</li>
+            <li>Simulated DL networks (AlexNet, ResNet, U-Net) on Nvidia NVDLA to support neural accelerator development.</li>
+            <li>Designed a lightweight CNN for ultra-low-light denoising, ranked 15th in the NTIRE21 Real Image Denoising Competition.</li>
+          </ul>
+          <ul class="de-content">
+            <li>Entwickelte ISP-Algorithmen (Demosaicing, Rauschunterdrückung) für SoC Vision Cores mit hardwarefreundlichen Designs.</li>
+            <li>Simulierte DL-Netzwerke (AlexNet, ResNet, U-Net) auf Nvidia NVDLA zur Unterstützung der neuronalen Beschleuniger-Entwicklung.</li>
+            <li>Entwarf ein leichtgewichtiges CNN für Ultra-Low-Light-Rauschunterdrückung, Platz 15 im NTIRE21 Real Image Denoising Wettbewerb.</li>
+          </ul>
+        </article>
+
+        <article class="experience-card">
+          <img src="assets/images/siemens.png" alt="Siemens">
+          <h4 class="en-content">Intern</h4>
+          <h4 class="de-content">Praktikant</h4>
+          <p class="company">Siemens</p>
+          <p class="date">Jun 2018 — Aug 2018 (Full-time)</p>
+          <ul class="en-content">
             <li>Programmed SCADA and PLC systems for industrial monitoring and automation.</li>
           </ul>
-        </article>
-      </div>
-    </section>
-
-
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div id="projects-grid" class="projects-grid"></div>
-</section>
-
-    <section id="education" class="section">
-      <h2>Education</h2>
-      <div class="grid-2">
-        <article class="item card">
-          <header>
-            <h3>Masters in Visual Computing <span class="tenure">Oct 2022 — Sep 2025</span></h3>
-            <p class="org">Saarland University — Saarbrücken, Germany</p>
-          </header>
-          <p><strong>Relevant coursework: </strong>Image Processing and CV, 3D Computer Vision, Embedded Systems, Photorealistic 3D Reconstruction, Computer Graphics</p>
-          <p><strong>Thesis: </strong><em>Joint Egocentric Pose Estimation, 3D Reconstruction and Inverse Rendering Pipeline</em></p>
-          <p>Designed an end‑to‑end pipeline combining egocentric pose estimation and physically‑based inverse rendering to produce photorealistic 3D digital twins from RGB images, achieving state‑of‑the‑art accuracy using Signed Distance Functions (SDFs) and novel multi‑view capture.</p>
-        </article>
-
-        <article class="item card">
-          <header>
-            <h3>Bachelors in Electrical Engineering <span class="tenure">Aug 2016 — Jul 2020</span></h3>
-            <p class="org">National University of Computer and Emerging Sciences — Lahore, Pakistan</p>
-          </header>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <div class="skills">
-        <h3>Programming & Tools</h3>
-        <div class="tags">
-          <span>Python</span><span>C++</span><span>MATLAB</span><span>PyTorch</span><span>TensorFlow</span><span>OpenCV</span><span>Docker</span><span>Linux</span><span>Git</span><span>CI/CD</span>
-        </div>
-        <h3>Algorithms & Domains</h3>
-        <div class="tags">
-          <span>ISP Pipelines</span><span>Low‑Light Enhancement</span><span>Energy‑Efficient ML</span><span>Neuromorphic ML</span><span>3D Reconstruction</span><span>Inverse Rendering</span><span>SDF</span><span>Egocentric Pose</span><span>Transformers</span><span>GNNs</span><span>OOD Detection</span>
-        </div>
-        <h3>Deployment</h3>
-        <div class="tags">
-          <span>Embedded Systems</span><span>NVIDIA Jetson</span><span>CUDA</span><span>TensorRT</span><span>ONNX</span><span>Model Optimization</span>
-        </div>
-        <h3>Evaluation</h3>
-        <div class="tags">
-          <span>PSNR</span><span>SSIM</span><span>AUROC</span><span>Benchmarking</span><span>Energy‑to‑Performance Profiling</span>
-        </div>
-      </div>
-
-      <div class="grid-2 mt">
-        <div class="card">
-          <h3>Languages</h3>
-          <p>English (C1) • German (A2) • Urdu (Native)</p>
-        </div>
-        <div class="card">
-          <h3>Honors & Certifications</h3>
-          <ul>
-            <li><strong>Image Processing in Python</strong> — DataCamp (ID: 18,844,342)</li>
-            <li><strong>Dean's List Member – Bachelors</strong> — Dec 2019</li>
+          <ul class="de-content">
+            <li>Programmierte SCADA- und PLC-Systeme für industrielle Überwachung und Automatisierung.</li>
           </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="snap-section education">
+      <h3 class="section-title en-content">Education</h3>
+      <h3 class="section-title de-content">Ausbildung</h3>
+      <div class="education-cards">
+        <article class="education-card">
+          <img src="assets/images/saarland.png" alt="Saarland University">
+          <h4 class="en-content">Masters in Visual Computing</h4>
+          <h4 class="de-content">Master in Visual Computing</h4>
+          <p class="institution">Saarland University</p>
+          <p class="date">Oct 2022 — Sep 2025</p>
+          <div class="content-scroll">
+            <p class="en-content"><strong>Relevant coursework:</strong> Image Processing and CV, 3D Computer Vision, Embedded Systems, Photorealistic 3D Reconstruction, Computer Graphics</p>
+            <p class="en-content"><strong>Thesis:</strong> <em>Joint Egocentric Pose Estimation, 3D Reconstruction and Inverse Rendering Pipeline</em></p>
+            <p class="en-content">Designed an end-to-end pipeline combining egocentric pose estimation and physically-based inverse rendering to produce photorealistic 3D digital twins from RGB images, achieving state-of-the-art accuracy using Signed Distance Functions (SDFs) and novel multi-view capture.</p>
+            <p class="de-content"><strong>Relevante Kurse:</strong> Bildverarbeitung und CV, 3D Computer Vision, Eingebettete Systeme, Photorealistische 3D-Rekonstruktion, Computergrafik</p>
+            <p class="de-content"><strong>Abschlussarbeit:</strong> <em>Gemeinsame Egocentric Pose Estimation, 3D-Rekonstruktion und Inverse Rendering Pipeline</em></p>
+            <p class="de-content">Entwarf eine End-to-End-Pipeline, die egocentrische Pose-Schätzung und physikalisch-basiertes Inverse Rendering kombiniert, um photorealistische 3D-Digital-Twins aus RGB-Bildern zu erzeugen, mit state-of-the-art Genauigkeit unter Verwendung von Signed Distance Functions (SDFs) und neuartiger Multi-View-Erfassung.</p>
+          </div>
+        </article>
+
+        <article class="education-card">
+          <img src="assets/images/nuces.png" alt="National University">
+          <h4 class="en-content">Bachelors in Electrical Engineering</h4>
+          <h4 class="de-content">Bachelor in Elektrotechnik</h4>
+          <p class="institution">National University of Computer and Emerging Sciences</p>
+          <p class="date">Aug 2016 — Jul 2020</p>
+          <div class="content-scroll">
+            <p class="en-content">Specialized in computer vision and signal processing with focus on embedded systems and machine learning applications.</p>
+            <p class="de-content">Spezialisiert auf Computer Vision und Signalverarbeitung mit Fokus auf eingebettete Systeme und Machine Learning-Anwendungen.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="snap-section skills">
+      <h3 class="section-title en-content">Skills</h3>
+      <h3 class="section-title de-content">Fähigkeiten</h3>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4 class="en-content">Programming & Tools</h4>
+          <h4 class="de-content">Programmierung & Tools</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4 class="en-content">Algorithms & Domains</h4>
+          <h4 class="de-content">Algorithmen & Domänen</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">ISP Pipelines</span>
+            <span class="skill-tag">Low-Light Enhancement</span>
+            <span class="skill-tag">Energy-Efficient ML</span>
+            <span class="skill-tag">Neuromorphic ML</span>
+            <span class="skill-tag">3D Reconstruction</span>
+            <span class="skill-tag">Inverse Rendering</span>
+            <span class="skill-tag">SDF</span>
+            <span class="skill-tag">Egocentric Pose</span>
+            <span class="skill-tag">Transformers</span>
+            <span class="skill-tag">GNNs</span>
+            <span class="skill-tag">OOD Detection</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4 class="en-content">Deployment</h4>
+          <h4 class="de-content">Deployment</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Embedded Systems</span>
+            <span class="skill-tag">NVIDIA Jetson</span>
+            <span class="skill-tag">CUDA</span>
+            <span class="skill-tag">TensorRT</span>
+            <span class="skill-tag">ONNX</span>
+            <span class="skill-tag">Model Optimization</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4 class="en-content">Evaluation</h4>
+          <h4 class="de-content">Evaluierung</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">PSNR</span>
+            <span class="skill-tag">SSIM</span>
+            <span class="skill-tag">AUROC</span>
+            <span class="skill-tag">Benchmarking</span>
+            <span class="skill-tag">Energy-to-Performance Profiling</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h4 class="en-content">Languages</h4>
+          <h4 class="de-content">Sprachen</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">English (C1)</span>
+            <span class="skill-tag">German (A2)</span>
+            <span class="skill-tag">Urdu (Native)</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="publications" class="section">
-      <h2>Publications</h2>
-      <article class="item card">
-        <p>
-          <a href="https://library.imaging.org/ei/articles/37/10/IPAS-227" target="_blank" rel="noopener">
-          Muqudas Rafiq, Ahsan Jalil, Khurram Usman, Muhammad Abdullah, Bilal Zafar,
-          “Multi‑Scale Feature Matching for Image Denoising using Residual Swin Transformers”,
-          Electronic Imaging, 2025, pp 227‑1–227‑6</a>
-        </p>
-      </article>
+    <section id="honors" class="snap-section honors">
+      <h3 class="section-title en-content">Honors & Certifications</h3>
+      <h3 class="section-title de-content">Auszeichnungen & Zertifizierungen</h3>
+      <div class="honors-grid">
+        <div class="honor-card">
+          <div class="honor-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10,9 9,9 8,9"/>
+            </svg>
+          </div>
+          <div class="honor-content">
+            <h4 class="en-content">Image Processing in Python</h4>
+            <h4 class="de-content">Bildverarbeitung in Python</h4>
+            <p class="honor-issuer">DataCamp</p>
+            <p class="honor-id">ID: 18,844,342</p>
+          </div>
+        </div>
+
+        <div class="honor-card">
+          <div class="honor-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="honor-content">
+            <h4 class="en-content">Dean's List Member</h4>
+            <h4 class="de-content">Dean's List Mitglied</h4>
+            <p class="honor-issuer">Bachelors Degree</p>
+            <p class="honor-date">December 2019</p>
+          </div>
+        </div>
+      </div>
+    </section>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <div class="contact card">
-        <ul class="contact-list">
-          <li><a href="mailto:ahsan.j.mirza@gmail.com">ahsan.j.mirza@gmail.com</a></li>
-          <li>Saarbrücken, Germany</li>
-          <li><a href="https://github.com/ahsanjmirza" target="_blank" rel="noopener">github.com/ahsanjmirza</a></li>
-          <li><a href="https://www.linkedin.com/in/ahsanjmirza/" target="_blank" rel="noopener">linkedin.com/in/ahsanjmirza</a></li>
-          <li><a href="https://www.instagram.com/ahsan_jmirza/" target="_blank" rel="noopener">instagram.com/ahsan_jmirza</a></li>
-        </ul>
+    <section id="projects" class="snap-section projects">
+      <h3 class="section-title en-content">Projects</h3>
+      <h3 class="section-title de-content">Projekte</h3>
+      <div class="projects-cards">
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">A-Star-Algorithm</h4>
+            <h4 class="project-title de-content">A-Star-Algorithmus</h4>
+            <p class="project-description en-content">This project implements the A* (A-star) routing algorithm in C++, designed to find the shortest path between nodes in a graph. It features a custom graph representation, a min-heap for the open set, and a binary search tree for the closed set.</p>
+            <p class="project-description de-content">Dieses Projekt implementiert den A* (A-star) Routing-Algorithmus in C++, der entwickelt wurde, um den kürzesten Weg zwischen Knoten in einem Graphen zu finden. Es verfügt über eine benutzerdefinierte Graph-Darstellung, einen Min-Heap für die offene Menge und einen binären Suchbaum für die geschlossene Menge.</p>
+            <div class="project-tech">
+              <span class="tech-tag">C++</span>
+              <span class="tech-tag">Algorithms</span>
+              <span class="tech-tag">Data Structures</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/A-Star-Algorithm" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">ahsanjmirza.github.io</h4>
+            <h4 class="project-title de-content">ahsanjmirza.github.io</h4>
+            <p class="project-description en-content">Dark, single-page portfolio site for Ahsan Jalil Mirza (Computer Vision Engineer), deployable to GitHub Pages.</p>
+            <p class="project-description de-content">Dunkle, einseitige Portfolio-Website für Ahsan Jalil Mirza (Computer Vision Engineer), bereitgestellt auf GitHub Pages.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/ahsanjmirza.github.io" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">Data-Structures</h4>
+            <h4 class="project-title de-content">Datenstrukturen</h4>
+            <p class="project-description en-content">A collection of generic, header-only C++ implementations of fundamental data structures for educational and practical use.</p>
+            <p class="project-description de-content">Eine Sammlung generischer, Header-nur C++-Implementierungen grundlegender Datenstrukturen für Bildungs- und praktische Zwecke.</p>
+            <div class="project-tech">
+              <span class="tech-tag">C++</span>
+              <span class="tech-tag">Data Structures</span>
+              <span class="tech-tag">Algorithms</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/Data-Structures" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">Demosaicing</h4>
+            <h4 class="project-title de-content">Demosaicing</h4>
+            <p class="project-description en-content">This repository provides an edge-aware, variance‐guided demosaicing implementation for Bayer‐pattern raw images, based on Stephen H. Westin's ISO 12233 test chart methodology. It converts single‐channel CFA (Color Filter Array) data into full-resolution RGB images.</p>
+            <p class="project-description de-content">Dieses Repository bietet eine kantenbewusste, varianzgesteuerte Demosaicing-Implementierung für Bayer-Muster-Rohbilder, basierend auf Stephen H. Westins ISO 12233-Testchart-Methodik. Es konvertiert Einzelkanal-CFA (Color Filter Array) Daten in vollauflösende RGB-Bilder.</p>
+            <div class="project-tech">
+              <span class="tech-tag">C++</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">Image Processing</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/Demosaicing" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">NeRD-pytorch</h4>
+            <h4 class="project-title de-content">NeRD-pytorch</h4>
+            <p class="project-description en-content">This repository contains a PyTorch reimplementation of NeRD (Neural Reflectance Decomposition) originally proposed by Boss et al. in their TensorFlow codebase. This version focuses on a minimal, debloated codebase for clarity and ease of customization.</p>
+            <p class="project-description de-content">Dieses Repository enthält eine PyTorch-Neuimplementierung von NeRD (Neural Reflectance Decomposition), ursprünglich von Boss et al. in ihrem TensorFlow-Codebase vorgeschlagen. Diese Version konzentriert sich auf einen minimalen, bereinigten Codebase für Klarheit und einfache Anpassung.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">Neural Networks</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/NeRD-pytorch" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">foundation-denoiser</h4>
+            <h4 class="project-title de-content">foundation-denoiser</h4>
+            <p class="project-description en-content">This repository implements an image denoising pipeline using a two‑stage approach: 1. Foundation Model (Self-Supervised), 2. Denoiser Model (Supervised)</p>
+            <p class="project-description de-content">Dieses Repository implementiert eine Bild-Rauschunterdrückungs-Pipeline mit einem zweistufigen Ansatz: 1. Foundation Model (Selbstüberwachtes Lernen), 2. Denoiser Model (Überwachtes Lernen)</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Deep Learning</span>
+              <span class="tech-tag">Image Denoising</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/foundation-denoiser" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">image-coloration</h4>
+            <h4 class="project-title de-content">image-coloration</h4>
+            <p class="project-description en-content">A Python-based image colorization project that restores and colorizes vintage or grayscale face images using deep learning techniques. This repository includes data preprocessing scripts, U-Net based L1 loss training, and a Wasserstein GAN with gradient penalty (WGAN-GP) for more realistic colorization.</p>
+            <p class="project-description de-content">Ein Python-basiertes Bildfärbungsprojekt, das Vintage- oder Graustufen-Gesichtsbilder mit Deep-Learning-Techniken restauriert und einfärbt. Dieses Repository umfasst Datenvorverarbeitungsskripte, U-Net-basiertes L1-Verlust-Training und einen Wasserstein GAN mit Gradient Penalty (WGAN-GP) für realistischere Färbung.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Deep Learning</span>
+              <span class="tech-tag">Image Colorization</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/image-coloration" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">swin-nlmnet</h4>
+            <h4 class="project-title de-content">swin-nlmnet</h4>
+            <p class="project-description en-content">A lightweight yet powerful image‑denoising model that combines classical Non‑Local Means (NLM) ideas with modern residual Swin Transformer blocks. The network is built on a multi‑scale feature extractor, learns pixel similarity via learned embeddings, and restores high‑frequency details through a residual transformer head.</p>
+            <p class="project-description de-content">Ein leichtgewichtiges, aber leistungsstarkes Bild-Rauschunterdrückungsmodell, das klassische Non-Local Means (NLM) Ideen mit modernen residualen Swin Transformer Blöcken kombiniert. Das Netzwerk basiert auf einem Multi-Scale-Feature-Extraktor, lernt Pixel-Ähnlichkeit über gelernte Einbettungen und stellt hochfrequente Details über einen residualen Transformer-Head wieder her.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">Transformers</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/swin-nlmnet" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">PyPTine</h4>
+            <h4 class="project-title de-content">PyPTine</h4>
+            <p class="project-description en-content">A lightweight, minimalistic implementation of TensoRF designed for ease of understanding, quick experimentation, and fast prototyping.</p>
+            <p class="project-description de-content">Eine leichtgewichtige, minimalistische Implementierung von TensoRF, entwickelt für einfaches Verständnis, schnelle Experimente und schnelles Prototyping.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">3D Vision</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/PyPTine" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <h4 class="project-title en-content">tensorrf-debloated</h4>
+            <h4 class="project-title de-content">tensorrf-debloated</h4>
+            <p class="project-description en-content">A lightweight, minimalistic implementation of TensoRF designed for ease of understanding, quick experimentation, and fast prototyping.</p>
+            <p class="project-description de-content">Eine leichtgewichtige, minimalistische Implementierung von TensoRF, entwickelt für einfaches Verständnis, schnelle Experimente und schnelles Prototyping.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">3D Vision</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ahsanjmirza/tensorrf-debloated" target="_blank" class="project-link">Repo</a>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </section>
 
-    <footer class="site-footer">
-      <p>© <span id="year"></span> Ahsan Jalil Mirza.</p>
-    </footer>
-  </main>
+    <section id="publications" class="snap-section publications">
+      <h3 class="section-title en-content">Publications</h3>
+      <h3 class="section-title de-content">Publikationen</h3>
+      <div class="publication-card">
+        <a href="https://library.imaging.org/ei/articles/37/10/IPAS-227" target="_blank" rel="noopener">
+          Muqudas Rafiq, Ahsan Jalil, Khurram Usman, Muhammad Abdullah, Bilal Zafar,
+          "Multi-Scale Feature Matching for Image Denoising using Residual Swin Transformers",
+          Electronic Imaging, 2025, pp 227-1–227-6
+        </a>
+      </div>
+    </section>
 
-  <script src="assets/js/main.js"></script>
+    <section id="contact" class="snap-section contact">
+      <h3 class="section-title en-content">Contact</h3>
+      <h3 class="section-title de-content">Kontakt</h3>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h4>Email</h4>
+          <a href="mailto:ahsan.j.mirza@gmail.com">ahsan.j.mirza@gmail.com</a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h4 class="en-content">Location</h4>
+          <h4 class="de-content">Standort</h4>
+          <p>Saarbrücken, Germany</p>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-1.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+          </div>
+          <h4>GitHub</h4>
+          <a href="https://github.com/ahsanjmirza" target="_blank">github.com/ahsanjmirza</a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </div>
+          <h4>LinkedIn</h4>
+          <a href="https://www.linkedin.com/in/ahsanjmirza/" target="_blank">linkedin.com/in/ahsanjmirza</a>
+        </div>
+      </div>
+    </section>
+  </div>
 
-  <!-- JSON-LD for rich snippets -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ahsan Jalil Mirza",
-    "jobTitle": "Computer Vision Engineer",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Saarbrücken",
-      "addressCountry": "Germany"
-    },
-    "email": "mailto:ahsan.j.mirza@gmail.com",
-    "sameAs": [
-      "https://github.com/ahsanjmirza",
-      "https://www.linkedin.com/in/ahsanjmirza/"
-    ]
-  }
+  <footer class="footer">
+    <a href="#hero" class="footer-button">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+      </svg>
+    </a>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle');
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      body.setAttribute('data-theme', newTheme);
+      themeToggle.innerHTML = newTheme === 'light' ? '🌙' : '☀️';
+      
+      // Save preference
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Language Toggle
+    function toggleLanguage() {
+      const body = document.body;
+      const langToggle = document.querySelector('.language-toggle');
+      const currentLang = body.getAttribute('data-lang');
+      const newLang = currentLang === 'en' ? 'de' : 'en';
+      
+      body.setAttribute('data-lang', newLang);
+      langToggle.innerHTML = newLang === 'en' ? 'DE' : 'EN';
+      
+      // Save preference
+      localStorage.setItem('language', newLang);
+    }
+
+    // Load saved preferences
+    function loadPreferences() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      const savedLang = localStorage.getItem('language') || 'en';
+      
+      document.body.setAttribute('data-theme', savedTheme);
+      document.body.setAttribute('data-lang', savedLang);
+      
+      const themeToggle = document.querySelector('.theme-toggle');
+      const langToggle = document.querySelector('.language-toggle');
+      
+      themeToggle.innerHTML = savedTheme === 'light' ? '🌙' : '☀️';
+      langToggle.innerHTML = savedLang === 'en' ? 'DE' : 'EN';
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Load preferences on page load
+    document.addEventListener('DOMContentLoaded', loadPreferences);
+
+
+
+    // Enhanced smooth scrolling for snap sections
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for scroll animations with improved performance
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Add stagger effect to skill tags
+    document.querySelectorAll('.skill-tag').forEach((tag, index) => {
+      tag.style.animationDelay = `${index * 0.05}s`;
+    });
+
+
+
+    // Add smooth scroll behavior for experience cards
+    const experienceCards = document.querySelector('.experience-cards');
+    if (experienceCards) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      experienceCards.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - experienceCards.offsetLeft;
+        scrollLeft = experienceCards.scrollLeft;
+        experienceCards.style.cursor = 'grabbing';
+      });
+
+      experienceCards.addEventListener('mouseleave', () => {
+        isDown = false;
+        experienceCards.style.cursor = 'grab';
+      });
+
+      experienceCards.addEventListener('mouseup', () => {
+        isDown = false;
+        experienceCards.style.cursor = 'grab';
+      });
+
+      experienceCards.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - experienceCards.offsetLeft;
+        const walk = (x - startX) * 2;
+        experienceCards.scrollLeft = scrollLeft - walk;
+      });
+    }
+
+    // Add smooth entrance animations for sections
+    const sections = document.querySelectorAll('.snap-section');
+    sections.forEach((section, index) => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(50px)';
+      section.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+      
+      setTimeout(() => {
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0)';
+      }, index * 200);
+    });
+
+    // Enhanced theme toggle with smooth transitions
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle');
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      // Add transition class for smooth color changes
+      body.style.transition = 'background-color 0.5s ease, color 0.5s ease';
+      
+      body.setAttribute('data-theme', newTheme);
+      themeToggle.innerHTML = newTheme === 'light' ? '🌙' : '☀️';
+      
+      // Save preference
+      localStorage.setItem('theme', newTheme);
+      
+      // Remove transition class after animation
+      setTimeout(() => {
+        body.style.transition = '';
+      }, 500);
+    }
+
+    // Enhanced language toggle with smooth transitions
+    function toggleLanguage() {
+      const body = document.body;
+      const langToggle = document.querySelector('.language-toggle');
+      const currentLang = body.getAttribute('data-lang');
+      const newLang = currentLang === 'en' ? 'de' : 'en';
+      
+      // Add fade effect
+      const contentElements = document.querySelectorAll('.en-content, .de-content');
+      contentElements.forEach(el => {
+        el.style.transition = 'opacity 0.3s ease';
+        el.style.opacity = '0';
+      });
+      
+      setTimeout(() => {
+        body.setAttribute('data-lang', newLang);
+        langToggle.innerHTML = newLang === 'en' ? 'DE' : 'EN';
+        
+        // Fade in new content
+        contentElements.forEach(el => {
+          el.style.opacity = '1';
+        });
+        
+        // Save preference
+        localStorage.setItem('language', newLang);
+      }, 300);
+    }
   </script>
 </body>
 </html>

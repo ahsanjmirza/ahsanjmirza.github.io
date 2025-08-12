@@ -1,15 +1,80 @@
-# ahsanjmirza.github.io
+# Ahsan Jalil Mirza - Portfolio
 
-Dark, single-page portfolio site for **Ahsan Jalil Mirza** (Computer Vision Engineer), deployable to GitHub Pages.
+## 🚀 Computer Vision Engineer Portfolio
 
-## Quick start
+Professional portfolio website showcasing computer vision projects, research work, and professional experience.
 
-1. Create a repo named `ahsanjmirza.github.io` (or your GitHub username).
-2. Upload the files in this folder to the repo.
-3. In the repo settings → Pages, ensure the source is set to **GitHub Actions** or **Deploy from branch (main)**.
-4. Wait ~1–2 minutes for the site to publish: `https://<username>.github.io/`.
+## ✨ Features
 
-## Customizing
-- Edit content in `index.html` (all sections are plain HTML).
-- Replace `assets/img/profile.jpg` with your own portrait.
-- Dark theme is default; click the ◐ button in the navbar to toggle light mode.
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Bilingual Support**: English and German language options
+- **Dark/Light Theme**: Toggle between themes
+- **Interactive Elements**: Smooth scrolling and hover effects
+- **Professional Layout**: Clean, minimalistic design
+
+## 🛠️ Technologies Used
+
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Styling**: Custom CSS with CSS Variables
+- **Icons**: SVG icons for minimalistic design
+- **Responsive**: Mobile-first responsive design
+
+## 📁 Project Structure
+
+```
+portfolio/
+├── index.html              # Main portfolio page
+├── assets/
+│   ├── images/            # Company logos and profile images
+│   ├── icons/             # SVG icons and graphics
+│   └── documents/         # Resume and certificates
+├── css/                   # Stylesheets (future use)
+├── js/                    # JavaScript files (future use)
+└── README.md              # Project documentation
+```
+
+## 🚀 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ahsanjmirza/portfolio.git
+   cd portfolio
+   ```
+
+2. **Open in browser**
+   - Simply open `index.html` in your web browser
+   - Or use a local server for development
+
+3. **Customize**
+   - Update content in `index.html`
+   - Modify styles in the embedded CSS
+   - Add new projects and experiences
+
+## 📱 Sections
+
+- **Hero**: Introduction and contact information
+- **About**: Professional background and expertise
+- **Experience**: Work history and achievements
+- **Education**: Academic background
+- **Skills**: Technical skills and competencies
+- **Honors**: Certifications and awards
+- **Projects**: Portfolio of work and research
+- **Contact**: Professional contact details
+
+## 🌐 Live Demo
+
+Visit: [https://ahsanjmirza.github.io](https://ahsanjmirza.github.io)
+
+## 📧 Contact
+
+- **Email**: ahsan.j.mirza@gmail.com
+- **GitHub**: [github.com/ahsanjmirza](https://github.com/ahsanjmirza)
+- **LinkedIn**: [linkedin.com/in/ahsanjmirza](https://linkedin.com/in/ahsanjmirza)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Ahsan Jalil Mirza** - Computer Vision Engineer & Researcher
